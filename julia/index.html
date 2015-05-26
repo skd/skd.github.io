@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no">
+		<title>Julia &amp; Žygi</title>
+		<link rel="icon" type="image/png" href="heart.png">
+		<link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,300,700' rel='stylesheet' type='text/css'>
+		<link rel='stylesheet' href='jquery.swipeshow.css'>
+		<style>
+			html, body, #photos, #photos ul {
+				height: 100%;
+				width: 100%;
+			}
+			body, #title, #photos, #photos .cover {
+				padding: 0px;
+				margin: 0px;
+			}
+			#photos .cover {
+				position: absolute;
+				min-height: 100%;
+				min-width: 100%;
+				background-size: cover;
+				background-repeat: no-repeat;
+				background-position: center;
+			}
+			#title {
+				z-index: 3;
+				text-align: right;
+				position: absolute;
+				padding-left: 2%;
+				padding-right: 2%;
+				bottom: 7%;
+				right: 0%;
+				font-family: "Roboto Slab", Calibri, Helvetica, Arial;
+			}
+			#title h1, #title h2, #title h3 {
+				margin: 0px;
+				padding: 0px;
+				color: #FFF;
+				text-shadow: 2px 2px 3px #000;
+				font-weight: normal;
+			}
+			#title h1 {
+				font-weight: bold;
+			}
+			#title h2 {
+				font-weight: lighter;
+			}
+			#title h3 {
+				font-weight: normal;
+			}
+
+			/* Responsive text size. Smaller than 768px */
+			#title h1 {
+				font-size: 50px;
+				line-height: 60px;
+			}
+			#title h2, #title h3 {
+				font-size: 28px;
+				line-height: 45px;
+			}
+			/* Others */
+			@media (min-width: 768px) {
+				#title {
+					padding-left: 10%;
+					padding-right: 10%;
+				}
+				#title h1 {
+					font-size: 60px;
+					line-height: 70px;
+				}
+				#title h2, #title h3 {
+					font-size: 40px;
+					line-height: 50px;
+				}
+			}
+			@media (min-width: 992px) {
+				#title h1 {
+					font-size: 70px;
+					line-height: 80px;
+				}
+				#title h2, #title h3 {
+					font-size: 50px;
+					line-height: 60px;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div id="photos" class="swipeshow">
+			<ul class="slides">
+				<li class="slide"><div class="cover" style="background-image: url('bg1.jpg')"></li>
+				<li class="slide"><div class="cover" style="background-image: url('bg7.jpg')"></li>
+				<li class="slide"><div class="cover" style="background-image: url('bg2.jpg')"></li>
+				<li class="slide"><div class="cover" style="background-image: url('bg3.jpg')"></li>
+				<li class="slide"><div class="cover" style="background-image: url('bg4.jpg')"></li>
+				<li class="slide"><div class="cover" style="background-image: url('bg5.jpg')"></li>
+				<li class="slide"><div class="cover" style="background-image: url('bg6.jpg')"></li>
+			</ul>
+			<div class='dots'></div>
+		</div>
+		<div id="title">
+			<h1>Julia &amp; Žygi<br></h1>
+			<h2>have been together for<br></h2>
+			<h3 id="timespan"></h3>
+		</div>
+		<script src="jquery-2.1.0.min.js"></script>
+		<script src="jquery.swipeshow.min.js"></script>
+		<script src="moment.min.js"></script>
+		<script>
+			function formatDurationEN(years, months, days) {
+				var outArr = [];
+				if (years > 0) {
+					var output = "" + years;
+					if (years == 1) {
+						output += " year";
+					} else {
+						output += " years";
+					}
+					outArr.push(output);
+				}
+				if (months > 0) {
+					var output = "" + months;
+					if (months == 1) {
+						output += " month";
+					} else {
+						output += " months";
+					}
+					outArr.push(output);
+				}
+				if (days > 0) {
+					var output = "" + days;
+					if (days == 1) {
+						output += " day";
+					} else {
+						output += " days";
+					}
+					outArr.push(output);
+				}
+				switch(outArr.length) {
+					case 1:
+						return outArr[0];
+					case 2:
+						return outArr[0] + " and " + outArr[1];
+					case 3:
+						return outArr[0] + ", " + outArr[1] + ", and " + outArr[2];
+					default:
+						return "ages"
+				}
+			}
+
+			function determineDuration() {
+				var now = moment();
+				var startedDating = moment("2011-09-23");
+
+				var years = now.diff(startedDating, "years");
+				var startedDating = startedDating.add(years, "years");
+
+				var months = now.diff(startedDating, "months");
+				var startedDating = startedDating.add(months, "months");
+
+				var days = now.diff(startedDating, "days");
+
+				$("#timespan").text(formatDurationEN(years, months, days));
+			}
+
+			$(document).ready(function() {
+				setInterval(function() {
+				    determineDuration();
+				}, 30 * 1000);
+				determineDuration();
+				$("#photos").swipeshow({
+					autostart: true,    /* Set to `false` to keep it steady */
+					interval: 3000,     /* Time between switching slides (ms) */
+					initial: 0,         /* First slide's index */
+					speed: 500,         /* Animation speed (ms) */
+					friction: 0.3,      /* Bounce-back behavior; use `0` to disable */
+					mouse: true,        /* enable mouse dragging controls */
+					keys: true,         /* enable left/right keyboard keys */
+
+					onactivate: function(){},
+					onpause: function(){},
+				});
+			})
+		</script>
+		<script>
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+			ga('create', 'UA-35194946-1', 'bruzgys.eu');
+			ga('send', 'pageview');
+		</script>
+	</body>
+
+</html>
