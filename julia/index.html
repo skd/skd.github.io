@@ -1,236 +1,298 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, user-scalable=no">
-		<title>Julia &amp; Žygi</title>
-		<link rel="icon" type="image/png" href="heart.png">
-		<link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,300,700' rel='stylesheet' type='text/css'>
-		<link rel='stylesheet' href='jquery.swipeshow.css'>
-		<style>
-			html, body, #photos, #photos ul {
-				height: 100%;
-				width: 100%;
-			}
-			body, #title, #photos, #photos .cover {
-				padding: 0px;
-				margin: 0px;
-			}
-			#photos .cover {
-				position: absolute;
-				min-height: 100%;
-				min-width: 100%;
-				background-size: cover;
-				background-repeat: no-repeat;
-				background-position: center;
-			}
-			#title {
-				z-index: 3;
-				text-align: right;
-				position: absolute;
-				padding-left: 2%;
-				padding-right: 2%;
-				bottom: 7%;
-				right: 0%;
-				font-family: "Roboto Slab", Calibri, Helvetica, Arial;
-			}
-			#title h1, #title h2, #title h3 {
-				margin: 0px;
-				padding: 0px;
-				color: #FFF;
-				text-shadow: 2px 2px 3px #000;
-				font-weight: normal;
-			}
-			#title h1 {
-				font-weight: bold;
-			}
-			#title h2 {
-				font-weight: lighter;
-			}
-			#title h3 {
-				font-weight: normal;
-			}
 
-			/* Responsive text size. Smaller than 768px */
-			#title h1 {
-				font-size: 50px;
-				line-height: 60px;
-			}
-			#title h2, #title h3 {
-				font-size: 28px;
-				line-height: 45px;
-			}
-			#photos .year {
-				font-size: 140px;
-				font-family: "Roboto Slab", Calibri, Helvetica, Arial;
-				color: #FFF;
-				opacity: 0.2;
-				font-weight: normal;
-			}
-			/* Others */
-			@media (min-width: 767px) {
-				#title {
-					padding-left: 10%;
-					padding-right: 10%;
-				}
-				#title h1 {
-					font-size: 60px;
-					line-height: 70px;
-				}
-				#title h2, #title h3 {
-					font-size: 40px;
-					line-height: 50px;
-				}
-				#photos .year {
-					font-size: 300px;
-				}
-			}
-			@media (min-width: 992px) {
-				#title h1 {
-					font-size: 70px;
-					line-height: 80px;
-				}
-				#title h2, #title h3 {
-					font-size: 50px;
-					line-height: 60px;
-				}
-			}
-		</style>
-	</head>
-	<body>
-		<div id="photos" class="swipeshow">
-			<ul class="slides">
-				<li class="slide"><div class="cover" style="background-image: url('bg1.jpg')"><span class="year">2013</span></div></li>
-				<li class="slide"><div class="cover" style="background-image: url('bg7.jpg')"><span class="year">2014</span></div></li>
-				<li class="slide"><div class="cover" style="background-image: url('bg2.jpg')"><span class="year">2012</span></div></li>
-				<li class="slide"><div class="cover" style="background-image: url('bg8.jpg'); background-position: right"><span class="year">2015</span></div></li>
-				<li class="slide"><div class="cover" style="background-image: url('bg9.jpg')"><span class="year">2016</span></div></li>
-				<li class="slide"><div class="cover" style="background-image: url('bg3.jpg')"><span class="year">2012</span></div></li>
-				<li class="slide"><div class="cover" style="background-image: url('bg4.jpg')"><span class="year">2012</span></div></li>
-				<li class="slide"><div class="cover" style="background-image: url('bg5.jpg')"><span class="year">2013</span></div></li>
-				<li class="slide"><div class="cover" style="background-image: url('bg6.jpg')"><span class="year">2013</span></div></li>
-				<li class="slide"><div class="cover" style="background-image: url('bg10.jpg'); background-position: right"><span class="year">2016</span></div></li>
-				<li class="slide"><div class="cover" style="background-image: url('bg11.jpg'); background-position: left"><span class="year">2015</span></div></li>
-				<li class="slide"><div class="cover" style="background-image: url('bg12.jpg'); background-position: right"><span class="year">2015</span></div></li>
-				<li class="slide"><div class="cover" style="background-image: url('bg13.jpg'); background-position: left"><span class="year">2014</span></div></li>
-				<li class="slide"><div class="cover" style="background-image: url('bg14.jpg')"><span class="year">2014</span></div></li>
-				<li class="slide"><div class="cover" style="background-image: url('bg15.jpg')"><span class="year">2014</span></div></li>
-				<li class="slide"><div class="cover" style="background-image: url('bg16.jpg')"><span class="year">2017</span></div></li>
-				<li class="slide"><div class="cover" style="background-image: url('2018-1.jpg')"><span class="year">2018</span></div></li>
-				<li class="slide"><div class="cover" style="background-image: url('2018-2.jpg')"><span class="year">2018</span></div></li>
-				<li class="slide"><div class="cover" style="background-image: url('2018-3.jpg')"><span class="year">2018</span></div></li>
-				<li class="slide"><div class="cover" style="background-image: url('2018-4.jpg')"><span class="year">2018</span></div></li>
-				<li class="slide"><div class="cover" style="background-image: url('2018-5.JPG')"><span class="year">2018</span></div></li>
-				<li class="slide"><div class="cover" style="background-image: url('2018-6.jpg')"><span class="year">2018</span></div></li>
-				<li class="slide"><div class="cover" style="background-image: url('2018-7.jpg'); background-position: right"><span class="year">2018</span></div></li>
-				<li class="slide"><div class="cover" style="background-image: url('2018-8.jpg')"><span class="year">2018</span></div></li>
-				<li class="slide"><div class="cover" style="background-image: url('2019-1.jpg')"><span class="year">2019</span></div></li>
-				<li class="slide"><div class="cover" style="background-image: url('2019-2.jpg')"><span class="year">2019</span></div></li>
-				<li class="slide"><div class="cover" style="background-image: url('2019-3.jpg'); background-position: right"><span class="year">2019</span></div></li>
-				<li class="slide"><div class="cover" style="background-image: url('2020-1.JPG')"><span class="year">2020</span></div></li>
-				<li class="slide"><div class="cover" style="background-image: url('2020-2.jpg'); background-position: right"><span class="year">2020</span></div></li>
-				<li class="slide"><div class="cover" style="background-image: url('2020-3.jpg')"><span class="year">2020</span></div></li>
-				<li class="slide"><div class="cover" style="background-image: url('2020-4.jpg')"><span class="year">2020</span></div></li>
-				<li class="slide"><div class="cover" style="background-image: url('2020-5.JPG')"><span class="year">2020</span></div></li>
-				<li class="slide"><div class="cover" style="background-image: url('2020-6.jpg')"><span class="year">2020</span></div></li>
-				<li class="slide"><div class="cover" style="background-image: url('2021-1.jpg')"><span class="year">2021</span></div></li>
-				<li class="slide"><div class="cover" style="background-image: url('2021-2.JPG')"><span class="year">2021</span></div></li>
-				<li class="slide"><div class="cover" style="background-image: url('2022-1.jpg')"><span class="year">2022</span></div></li>
-			</ul>
-			<div class='dots'></div>
-		</div>
-		<div id="title">
-			<h1>Julia &amp; Žygi<br></h1>
-			<h2>have been together for<br></h2>
-			<h3 id="timespan"></h3>
-		</div>
-		<script src="jquery-3.6.1.min.js"></script>
-		<script src="jquery.swipeshow.min.js"></script>
-		<script src="moment.min.js"></script>
-		<script>
-			function formatDurationEN(years, months, days) {
-				var outArr = [];
-				if (years > 0) {
-					var output = "" + years;
-					if (years == 1) {
-						output += " year";
-					} else {
-						output += " years";
-					}
-					outArr.push(output);
-				}
-				if (months > 0) {
-					var output = "" + months;
-					if (months == 1) {
-						output += " month";
-					} else {
-						output += " months";
-					}
-					outArr.push(output);
-				}
-				if (days > 0) {
-					var output = "" + days;
-					if (days == 1) {
-						output += " day";
-					} else {
-						output += " days";
-					}
-					outArr.push(output);
-				}
-				switch(outArr.length) {
-					case 1:
-						return outArr[0];
-					case 2:
-						return outArr[0] + " and " + outArr[1];
-					case 3:
-						return outArr[0] + ", " + outArr[1] + ", and " + outArr[2];
-					default:
-						return "ages"
-				}
-			}
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <title>Julia &amp; Žygi</title>
+    <link rel="icon" type="image/png" href="heart.png">
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,300,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
 
-			function determineDuration() {
-				var now = moment();
-				var startedDating = moment("2011-09-23");
+    <style>
+        :root {
+            --swiper-navigation-color: rgb(216, 216, 216);
+            --swiper-pagination-bullet-inactive-color: rgb(136, 136, 136);
+            --swiper-pagination-bullet-inactive-opacity: 0.8;
+        }
 
-				var years = now.diff(startedDating, "years");
-				var startedDating = startedDating.add(years, "years");
+        html,
+        body {
+            height: 100%;
+        }
 
-				var months = now.diff(startedDating, "months");
-				var startedDating = startedDating.add(months, "months");
+        body {
+            position: relative;
+            margin: 0;
+            padding: 0;
+        }
 
-				var days = now.diff(startedDating, "days");
+        #photos.swiper {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
 
-				$("#timespan").text(formatDurationEN(years, months, days));
-			}
+        #photos .swiper-slide {
+            display: flex;
 
-			$(document).ready(function() {
-				setInterval(function() {
-				    determineDuration();
-				}, 30 * 1000);
-				determineDuration();
-				$("#photos").swipeshow({
-					autostart: true,    /* Set to `false` to keep it steady */
-					interval: 3000,     /* Time between switching slides (ms) */
-					initial: 0,         /* First slide's index */
-					speed: 500,         /* Animation speed (ms) */
-					friction: 0.3,      /* Bounce-back behavior; use `0` to disable */
-					mouse: true,        /* enable mouse dragging controls */
-					keys: true,         /* enable left/right keyboard keys */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
 
-					onactivate: function(){},
-					onpause: function(){},
-				});
-			})
-		</script>
-		<script>
-			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-			})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-			ga('create', 'UA-31544747-1', 'auto');
-			ga('send', 'pageview');
-		</script>
-	</body>
+        #photos .swiper-slide.left {
+            background-position: left;
+        }
+
+        #photos .swiper-slide.right {
+            background-position: right;
+        }
+
+        #photos .year {
+            font-size: 140px;
+            font-family: "Roboto Slab", Calibri, Helvetica, Arial;
+            color: #FFF;
+            opacity: 0.2;
+            font-weight: normal;
+        }
+
+        #title {
+            z-index: 3;
+            text-align: right;
+            position: absolute;
+            padding-left: 2%;
+            padding-right: 2%;
+            bottom: 7%;
+            right: 0%;
+            font-family: "Roboto Slab", Calibri, Helvetica, Arial;
+        }
+
+        #title h1,
+        #title h2,
+        #title h3 {
+            margin: 0px;
+            padding: 0px;
+            color: #FFF;
+            text-shadow: 2px 2px 3px #000;
+            font-weight: normal;
+        }
+
+        #title h1 {
+            font-weight: bold;
+        }
+
+        #title h2 {
+            font-weight: lighter;
+        }
+
+        #title h3 {
+            font-weight: normal;
+        }
+
+        /* Responsive text size. Smaller than 768px */
+        #title h1 {
+            font-size: 50px;
+            line-height: 60px;
+        }
+
+        #title h2,
+        #title h3 {
+            font-size: 28px;
+            line-height: 45px;
+        }
+
+        /* Others */
+        @media (min-width: 767px) {
+            #title {
+                padding-left: 10%;
+                padding-right: 10%;
+            }
+
+            #title h1 {
+                font-size: 60px;
+                line-height: 70px;
+            }
+
+            #title h2,
+            #title h3 {
+                font-size: 40px;
+                line-height: 50px;
+            }
+
+            #photos .year {
+                font-size: 300px;
+            }
+        }
+
+        @media (min-width: 992px) {
+            #title h1 {
+                font-size: 70px;
+                line-height: 80px;
+            }
+
+            #title h2,
+            #title h3 {
+                font-size: 50px;
+                line-height: 60px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="photos" class="swiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide" style="background-image: url('bg1.jpg')"><span class="year">2013</span></div>
+            <div class="swiper-slide" style="background-image: url('bg7.jpg')"><span class="year">2014</span></div>
+            <div class="swiper-slide" style="background-image: url('bg2.jpg')"><span class="year">2012</span></div>
+            <div class="swiper-slide right" style="background-image: url('bg8.jpg')"><span class="year">2015</span>
+            </div>
+            <div class="swiper-slide" style="background-image: url('bg9.jpg')"><span class="year">2016</span></div>
+            <div class="swiper-slide" style="background-image: url('bg3.jpg')"><span class="year">2012</span></div>
+            <div class="swiper-slide" style="background-image: url('bg4.jpg')"><span class="year">2012</span></div>
+            <div class="swiper-slide" style="background-image: url('bg5.jpg')"><span class="year">2013</span></div>
+            <div class="swiper-slide" style="background-image: url('bg6.jpg')"><span class="year">2013</span></div>
+            <div class="swiper-slide right" style="background-image: url('bg10.jpg')"><span class="year">2016</span>
+            </div>
+            <div class="swiper-slide left" style="background-image: url('bg11.jpg')"><span class="year">2015</span>
+            </div>
+            <div class="swiper-slide right" style="background-image: url('bg12.jpg')"><span class="year">2015</span>
+            </div>
+            <div class="swiper-slide left" style="background-image: url('bg13.jpg')t"><span class="year">2014</span>
+            </div>
+            <div class="swiper-slide" style="background-image: url('bg14.jpg')"><span class="year">2014</span></div>
+            <div class="swiper-slide" style="background-image: url('bg15.jpg')"><span class="year">2014</span></div>
+            <div class="swiper-slide" style="background-image: url('bg16.jpg')"><span class="year">2017</span></div>
+            <div class="swiper-slide" style="background-image: url('2018-1.jpg')"><span class="year">2018</span></div>
+            <div class="swiper-slide" style="background-image: url('2018-2.jpg')"><span class="year">2018</span></div>
+            <div class="swiper-slide" style="background-image: url('2018-3.jpg')"><span class="year">2018</span></div>
+            <div class="swiper-slide" style="background-image: url('2018-4.jpg')"><span class="year">2018</span></div>
+            <div class="swiper-slide" style="background-image: url('2018-5.JPG')"><span class="year">2018</span></div>
+            <div class="swiper-slide" style="background-image: url('2018-6.jpg')"><span class="year">2018</span></div>
+            <div class="swiper-slide right" style="background-image: url('2018-7.jpg')"><span class="year">2018</span>
+            </div>
+            <div class="swiper-slide" style="background-image: url('2018-8.jpg')"><span class="year">2018</span></div>
+            <div class="swiper-slide" style="background-image: url('2019-1.jpg')"><span class="year">2019</span></div>
+            <div class="swiper-slide" style="background-image: url('2019-2.jpg')"><span class="year">2019</span></div>
+            <div class="swiper-slide right" style="background-image: url('2019-3.jpg')"><span class="year">2019</span>
+            </div>
+            <div class="swiper-slide" style="background-image: url('2020-1.JPG')"><span class="year">2020</span></div>
+            <div class="swiper-slide right" style="background-image: url('2020-2.jpg')"><span class="year">2020</span>
+            </div>
+            <div class="swiper-slide" style="background-image: url('2020-3.jpg')"><span class="year">2020</span></div>
+            <div class="swiper-slide" style="background-image: url('2020-4.jpg')"><span class="year">2020</span></div>
+            <div class="swiper-slide" style="background-image: url('2020-5.JPG')"><span class="year">2020</span></div>
+            <div class="swiper-slide" style="background-image: url('2020-6.jpg')"><span class="year">2020</span></div>
+            <div class="swiper-slide" style="background-image: url('2021-1.jpg')"><span class="year">2021</span></div>
+            <div class="swiper-slide" style="background-image: url('2021-2.JPG')"><span class="year">2021</span></div>
+            <div class="swiper-slide" style="background-image: url('2022-1.jpg')"><span class="year">2022</span></div>
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+    </div>
+
+    <div id="title">
+        <h1>Julia &amp; Žygi<br></h1>
+        <h2>have been together for<br></h2>
+        <h3 id="timespan"></h3>
+    </div>
+
+    <script src="jquery-3.6.1.min.js"></script>
+    <script src="moment.min.js"></script>
+    <script src="swiper-bundle.min.js"></script>
+    <script>
+        function formatDurationEN(years, months, days) {
+            var outArr = [];
+            if (years > 0) {
+                var output = "" + years;
+                if (years == 1) {
+                    output += " year";
+                } else {
+                    output += " years";
+                }
+                outArr.push(output);
+            }
+            if (months > 0) {
+                var output = "" + months;
+                if (months == 1) {
+                    output += " month";
+                } else {
+                    output += " months";
+                }
+                outArr.push(output);
+            }
+            if (days > 0) {
+                var output = "" + days;
+                if (days == 1) {
+                    output += " day";
+                } else {
+                    output += " days";
+                }
+                outArr.push(output);
+            }
+            switch (outArr.length) {
+                case 1:
+                    return outArr[0];
+                case 2:
+                    return outArr[0] + " and " + outArr[1];
+                case 3:
+                    return outArr[0] + ", " + outArr[1] + ", and " + outArr[2];
+                default:
+                    return "ages"
+            }
+        }
+
+        function determineDuration() {
+            var now = moment();
+            var startedDating = moment("2011-09-23");
+
+            var years = now.diff(startedDating, "years");
+            var startedDating = startedDating.add(years, "years");
+
+            var months = now.diff(startedDating, "months");
+            var startedDating = startedDating.add(months, "months");
+
+            var days = now.diff(startedDating, "days");
+
+            $("#timespan").text(formatDurationEN(years, months, days));
+        }
+
+        $(document).ready(function () {
+            setInterval(function () {
+                determineDuration();
+            }, 30 * 1000);
+            determineDuration();
+        });
+
+        var swiper = new Swiper("#photos", {
+            loop: true,
+            autoplay: {
+                delay: 5000,
+            },
+
+            // If we need pagination
+            pagination: {
+                el: '.swiper-pagination',
+                dynamicBullets: true,
+            },
+
+            // Navigation arrows
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+    </script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-31544747-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+</body>
 
 </html>
